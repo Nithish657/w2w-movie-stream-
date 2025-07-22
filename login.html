@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <img src="https://i.pinimg.com/736x/e4/7f/51/e47f5128f9728413f4816c321ff75dc5.jpg" class="background-img" alt="Background" />
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="name" placeholder="Enter Name" required>
+    <input type="number" id="age" placeholder="Enter Age" required>
+    <input type="tel" id="phone" placeholder="Enter Phone Number" required>
+    <button onclick="sendOTP()">Login with OTP</button>
+
+    <div id="otp-section" style="display: none;">
+      <input type="text" id="otp" placeholder="Enter OTP">
+      <button onclick="verifyOTP()">Verify OTP</button>
+    </div>
+
+    <p id="error-msg"></p>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
