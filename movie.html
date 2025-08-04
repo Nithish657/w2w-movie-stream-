@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Popular Movies</title>
+  <link rel="stylesheet" href="movie.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">w2w</div>
+     <form id="searchForm" onsubmit="return handleSearch(event)">
+        <input type="text" id="searchInput" placeholder="Search movies..." />
+      </form>
+      <div id="noResults" style="display: none;">No movies found.</div>
+      <div class="right-nav">
+        <button class="nav-btn" onclick="location.href='index.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='movie.html'">Movies</button>
+        <button class="nav-btn" onclick="location.href='sports.html'">sports</button>
+        <div class="user-icon" onclick="toggleUserMenu()">
+  <img src="assets/profile.png" alt="User" />
+</div>
+  </header>
+  
+
+  <h2 style="padding: 1rem;">Popular Movies</h2>
+<section class="popular">
+  <div class="movie-row-container">
+    <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+    
+    <div class="movie-row">
+
+        <!-- Copy popular movie cards from index.html here -->
+        <!-- Example -->
+        <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/70/1d/84/701d84bf0a62a14724c8662577fc17fc.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/ba/6a/00/ba6a00f53e4b11ad04abec39168ee6c6.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/ee/a6/96/eea69621974da8b6ef207334b8b5fe5d.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/cf/0b/68/cf0b6884040691f4ca857d210d004de6.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/bd/9b/66/bd9b66f90280b82444ba9898841c3f0e.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/d5/5e/f9/d55ef9d5da01ebde6ce6c84e68c41e75.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/bb/02/5f/bb025ff13f06579a952ef6d9ea3972b6.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/d1/0e/a7/d10ea7a49ea2bc59842ca422f4caf749.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <!-- Add the rest similarly -->
+      </div>
+        <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="popular">
+  <div class="movie-row-container">
+    <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+    
+    <div class="movie-row">
+
+        <!-- Copy popular movie cards from index.html here -->
+        <!-- Example -->
+        <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/ae/be/de/aebedea565116005359ffa4b29344622.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/06/8e/47/068e4700ce144ddfb8b5863b7b3eafd7.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/ad/65/dd/ad65dd3caf3a0bff0f2f397684b5e3a8.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/af/34/1e/af341e79a94853eb03fb149f3cfbe509.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/11/1c/00/111c00493b20a2739ffc66eb722c8307.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/5c/ec/a9/5ceca947e8ead86ed174230ecca5cff7.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/9e/22/58/9e2258dedd87d0ac2c4c5bc7a1a2fcbe.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+         <div class="movie-card" data-video="videos/movie1.mp4">
+          <img src="https://i.pinimg.com/736x/d1/0e/a7/d10ea7a49ea2bc59842ca422f4caf749.jpg" alt="Movie 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <!-- Add the rest similarly -->
+      </div>
+        <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+    </div>
+  </section>
+  
+  <script>
+  function scrollRow(button) {
+    const row = button.parentElement.querySelector('.movie-row');
+    const scrollAmount = 300; // px to scroll
+
+    if (button.classList.contains('left')) {
+      row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+      row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+    
+  }
+  
+</script>
+
+</body>
+</html>

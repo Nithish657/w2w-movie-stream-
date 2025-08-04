@@ -1,0 +1,256 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 2.0;
+}
+/* Header */
+/* Sticky Header */
+header {
+  position: sticky;
+  top: 0px;
+  z-index: 1001;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+  background-color:transparent;
+  border-bottom: transparent;
+}
+
+.logo {
+  font-size: 60px;
+  font-weight: bold;
+  color: #e50914;
+}
+
+/* Search */
+#searchForm {
+  flex:1;
+  display: flex;
+  justify-content:center;
+  margin: 10px 5px;
+}
+
+#searchInput {
+  width: 17%;
+  padding: 10px 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #222;
+  color: white;
+  outline: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchInput::placeholder {
+  color: #888;
+}
+
+#searchInput:focus {
+  background-color: #333;
+  box-shadow: 0 0 5px #c5bbbc;
+}
+
+/* No Results */
+#noResults {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #ff4444;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Right Nav */
+.right-nav {
+  display: flex;
+  align-items: center;
+  gap: 170px;
+}
+
+.nav-btn {
+  background-color: #222222;
+  color: white;
+  padding:10px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background-color: #f40612;
+}
+
+.user-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* User Menu */
+.user-menu {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  background-color: #222;
+  padding: 10px;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 50px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.user-menu p {
+  font-weight: bold;
+}
+
+.user-menu button {
+  background-color: #333;
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.user-menu button:hover {
+  background-color: #555;
+}
+/* Popular Section */
+.popular {
+  padding: 10px;
+}
+
+h2 {
+  margin-left: 20px ;
+  color: #ffffff;
+}
+
+/* Movie Row Container */
+.movie-row-container {
+  position: relative;
+}
+
+.movie-row {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 5px 10px;
+}
+
+.movie-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* Movie Card */
+.movie-card {
+  width: 200px;
+  flex: 0 0 auto;
+  background-color: #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/* Watch Now Button */
+.watch-now-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(229, 9, 20, 0.9);
+  color: white;
+  border: none;
+  padding: 5px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 80%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover .watch-now-btn {
+  opacity: 1;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px 14px;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .movie-row {
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .movie-card {
+    width: 150px;
+  }
+
+  .movie-card img {
+    height: 225px;
+  }
+
+  .movie-title {
+    font-size: 14px;
+  }
+
+  .watch-now-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+
+
+
