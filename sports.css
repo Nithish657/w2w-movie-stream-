@@ -1,0 +1,274 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 3.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding:0.1px 60px;
+  position: sticky;
+  color: #e50914;
+  top: 0%;
+  z-index: 999;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.logo {
+  font-size:85px;
+  font-weight: bold;
+  color: #e40c0c;
+  margin-right: 20px;
+  padding: 0.1px 10px ;
+}
+
+/* Search Form */
+#searchForm {
+  flex: 1;
+  max-width: 300px;
+  color: #000000;
+}
+
+#searchForm input {
+  background-color: #222222;
+  width: 40%;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 25px;
+}
+
+/* Right Navigation Buttons */
+.right-nav {
+  display: flex;
+  align-items: center;
+  gap: 230px; /* <-- This adds space between buttons */
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  padding: 15px 40px;
+  font-size: 16px;
+  background-color: #222222;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #e50914;
+}
+
+/* User Icon */
+.user-icon img {
+
+  margin-top: 10px; /* <-- Move icon downward */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Section Title */
+h2 {
+  margin-left: 2%;
+  font-size: 300%;
+  color: #ffffff;
+}
+
+/* Popular Section */
+.popular {
+  padding: 30px 10x 10px;
+}
+
+/* Movie Row Container */
+.movie-row-container {
+  position: relative;
+  
+}
+
+/* Movie Row */
+.movie-row {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  padding: 1px 1%;
+}
+
+.movie-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Movie Card */
+.movie-card {
+  width: 500px;
+  flex: 0 0 auto;
+  background-color: #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.5s ease;
+  margin: 0;        /* 🔧 ensure no external spacing */
+  padding: 0;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;       /* ✅ full width image */
+  height: 290px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;    /* ✅ remove whitespace from inline */
+}
+
+/* Watch Now Button */
+.watch-now-btn {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(229, 9, 20, 0.9);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover .watch-now-btn {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .movie-row {
+    gap: 0px;
+    padding: 0px 0;
+  }
+
+  .movie-card {
+    width: 150px;
+  }
+
+  .movie-card img {
+    height: 100px;
+  }
+
+  .movie-title {
+    font-size: 14px;
+  }
+
+  .watch-now-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Video Modal */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#modalVideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.close-video {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: none; /* IMPORTANT: Hidden on load */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#modalVideo {
+  width: 80%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.close-video {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+
+
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px 14px;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}

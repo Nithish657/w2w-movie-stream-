@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>sports</title>
+  <link rel="stylesheet" href="sports.css" />
+</head>
+<body>
+  <header>
+     <div class="logo">w2w</div>
+     <form id="searchForm" onsubmit="return handleSearch(event)">
+        <input type="text" id="searchInput" placeholder="Search movies..." />
+      </form>
+      <div id="noResults" style="display: none;">No movies found.</div>
+      <div class="right-nav">
+        <button class="nav-btn" onclick="location.href='index.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='movie.html'">Movies</button>
+        <button class="nav-btn" onclick="location.href='sports.html'">sports</button>
+        <div class="user-icon" onclick="toggleUserMenu()">
+  <img src="assets/profile.png" alt="User" />
+</div>
+  </header>
+
+  <h2 style="padding: 1rem;">sports</h2>
+  <section class="popular">
+    <div class="movie-row-container">
+      <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+      <div class="movie-row">
+        <!-- Add TV show cards here -->
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://i.pinimg.com/1200x/7a/5c/5e/7a5c5e3c3bd3fd70197e5b19a056faf2.jpg" alt="TV Show 1" />
+          <div class="movie-title">IPL final: Undoubtedly Virat Kohli's night, but RCB mates deserved more spotlight</div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://i.pinimg.com/736x/6d/6f/bb/6d6fbb1cbdee0d462ad5f1df26f6c613.jpg" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202507/bryan-mbeumo-184204790-16x9_0.jpg?VersionId=d19lpbszMbemzsjyH9FH.jAkqh.CLLE9&size=690:388" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202506/virat-kohli--rajat-patidar-055247641-16x9_0.jpg?VersionId=b6hKNZwk8AVtsyfOuWJNr6o9v.FX1oJh" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://c.ndtvimg.com/2025-07/sfahriqo_tanvi-sharma-bai-_625x300_26_July_25.jpeg?im=FeatureCrop,algorithm=dnn,width=1200,height=738&output-quality=80" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <!-- Add more TV shows -->
+      </div>
+      <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+    </div>
+  </section>
+    <section class="popular">
+    <div class="movie-row-container">
+      <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+      <div class="movie-row">
+        <!-- Add TV show cards here -->
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://c.ndtvimg.com/2025-07/l0t5u8mg_shubman-gill-pti_625x300_07_July_25.jpg?im=FeatureCrop,algorithm=dnn,width=630,height=417&output-quality=80" alt="TV Show 1" />
+          <div class="movie-title">IPL final: Undoubtedly Virat Kohli's night, but RCB mates deserved more spotlight</div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://drop.ndtv.com/albums/SPORTS/rishabh-pant-s-_638864654454546997/638864654480637908.jpeg" alt="TV Show 1" />
+          <div class="movie-title">Pant became only the second wicketkeeper to hit two hundreds in the same match</div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://c.ndtvimg.com/2025-07/j7ejo9bs_ben-stokes-and-sundar-x_625x300_29_July_25.jpeg" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://c.ndtvimg.com/2025-07/fgtjpljg_divya-deshmukh_625x300_28_July_25.jpeg?im=FeatureCrop,algorithm=dnn,width=285,height=215&output-quality=80" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://c.ndtvimg.com/2025-07/k8ep6s4s_satwiksairaj-rankireddy-and-chirag-shetty_625x300_28_July_25.jpeg?im=FeatureCrop,algorithm=dnn,width=1200,height=738&output-quality=80" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <!-- Add more TV shows -->
+      </div>
+      <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+    </div>
+  </section>
+
+    <section class="popular">
+    <div class="movie-row-container">
+      <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+      <div class="movie-row">
+        <!-- Add TV show cards here -->
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://c.ndtvimg.com/2025-07/g6d7iojs_england-womens-football-team-afp_625x300_28_July_25.jpg?im=FeatureCrop,algorithm=dnn,width=530,height=400&output-quality=80" alt="TV Show 1" />
+          <div class="movie-title">IPL final: Undoubtedly Virat Kohli's night, but RCB mates deserved more spotlight</div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://c.ndtvimg.com/2025-03/hpbentdg_xavi-hernandez_625x300_24_March_25.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height=738" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://c.ndtvimg.com/2025-03/doqdoeq_yuvraj-singh-x_625x300_16_March_25.jpg?im=FeatureCrop,algorithm=dnn,width=300,height=225&output-quality=80" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202506/virat-kohli--rajat-patidar-055247641-16x9_0.jpg?VersionId=b6hKNZwk8AVtsyfOuWJNr6o9v.FX1oJh" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <div class="movie-card" data-video="videos/tv1.mp4">
+          <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202506/virat-kohli--rajat-patidar-055247641-16x9_0.jpg?VersionId=b6hKNZwk8AVtsyfOuWJNr6o9v.FX1oJh" alt="TV Show 1" />
+          <div class="movie-title"></div>
+          <button class="watch-now-btn">Watch Now</button>
+        </div>
+        <!-- Add more TV shows -->
+      </div>
+      <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+    </div>
+    
+  </section>
+   <!-- Video Modal -->
+  <div class="video-modal" id="videoModal">
+    <span class="close-video" onclick="closeModal()">×</span>
+    <video id="modalVideo" controls autoplay></video>
+  </div>
+
+<script>
+  // Open video modal on Watch Now button click
+  document.querySelectorAll('.watch-now-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      const videoSrc = this.parentElement.getAttribute('data-video');
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+
+      video.src = videoSrc;
+      modal.style.display = 'flex';
+      video.play();
+    });
+  });
+
+  // Close video modal
+  function closeModal() {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+
+    video.pause();
+    video.currentTime = 0;
+    video.src = ""; // ✅ Prevents autoplay on reload
+    modal.style.display = 'none';
+  }
+</script>
+<script>
+  function scrollRow(button) {
+    const row = button.parentElement.querySelector('.movie-row');
+    const scrollAmount = 300; // px to scroll
+
+    if (button.classList.contains('left')) {
+      row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+      row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  }
+</script>
+</body>
+
+</html>
