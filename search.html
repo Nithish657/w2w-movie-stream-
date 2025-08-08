@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search Results</title>
+  <link rel="stylesheet" href="search.css" />
+</head>
+<body>
+    <header>
+      <div class="logo">w2w</div>
+     <form id="searchForm" onsubmit="return handleSearch(event)">
+        <input type="text" id="searchInput" placeholder="Search movies..." />
+      </form>
+      <div id="noResults" style="display: none;">No movies found.</div>
+      <div class="right-nav">
+        <button class="nav-btn" onclick="location.href='index.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='movie.html'">Movies</button>
+        <button class="nav-btn" onclick="location.href='sports.html'">Sports</button>
+        <div class="user-icon" onclick="toggleUserMenu()">
+  <img src="assets/profile.png" alt="User" />
+</div>
+
+<div id="userMenu" class="user-menu">
+  <p id="usernameDisplay">👤 Welcome, User!</p>
+  <button onclick="openSettings()">⚙️ Settings</button>
+  <button onclick="logout()">🚪 Logout</button>
+</div>
+      </div>
+    </header>
+
+  <!-- Hero (fullscreen) section -->
+  <section class="hero-section" id="heroSection">
+    <!-- Hero movie will be inserted here -->
+  </section>
+
+  <!-- Recommended movies -->
+  <h2 class="section-title">Recommended Movies</h2>
+  <section class="popular">
+    <div class="movie-row-container">
+      <div class="movie-row" id="recommendedResults">
+        <!-- Recommended movie cards appear here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="video-modal" style="display:none;">
+    <video id="modalVideo" controls autoplay></video>
+    <span class="close-video" onclick="closeVideoModal()">&times;</span>
+  </div>
+
+  <script>
+  
+  function handleSearch(event) {
+    event.preventDefault(); // Prevent form from reloading the page
+
+    const input = document.getElementById("searchInput");
+    const query = input.value.trim();
+
+    if (query !== "") {
+      // Redirect to the same page with search query
+      window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+    }
+  }
+
+
+    function closeVideoModal() {
+      const modal = document.getElementById('videoModal');
+      const player = document.getElementById('modalVideo');
+      player.pause();
+      player.src = '';
+      modal.style.display = 'none';
+    }
+    function closeVideoModal() {
+  const modal = document.getElementById('videoModal');
+  const player = document.getElementById('modalVideo');
+  player.pause();
+  player.src = '';
+  modal.style.display = 'none';
+}
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get('query')?.toLowerCase() || '';
+
+      const movies = [
+        { title: 'URI', image: 'https://i.pinimg.com/736x/fc/a2/be/fca2bebf4e8c3326090e69759ab5242c.jpg', video: 'videos/video101.mp4' },
+        { title: 'CHHAAVA', image: 'https://i.pinimg.com/736x/45/f4/a5/45f4a548a70229ad4a1a327871730012.jpg', video: 'videos/movie2.mp4' },
+        { title: 'THE LION KING', image: 'https://i.pinimg.com/736x/c3/16/17/c316174db83bacb0c998b0a621416568.jpg', video: 'videos/tv1.mp4' },
+        { title: 'WAR', image: 'https://i.pinimg.com/736x/29/cc/59/29cc59b0956ecd79f8fb475a925db6ec.jpg', video: 'videos/tv1.mp4' },
+        { title: 'PUSHPA 2', image: 'https://i.pinimg.com/736x/3b/5d/17/3b5d17da4f8d207beb8e4db08fbb3a31.jpg', video: 'videos/tv1.mp4' },
+        { title: 'JUMANJI', image: 'https://i.pinimg.com/736x/ad/65/dd/ad65dd3caf3a0bff0f2f397684b5e3a8.jpg', video: 'videos/tv1.mp4' },
+        { title: 'THE CONJURING', image: 'https://i.pinimg.com/736x/31/2c/c6/312cc6f9be74045dc928537e09441f1a.jpg', video: 'videos/tv1.mp4' },
+        { title: 'ANNABELLE', image: 'https://i.pinimg.com/736x/cc/06/dc/cc06dcf642dc2450432679d3dc3e9e9a.jpg', video: 'videos/tv1.mp4' },
+        { title: 'HARRY POTTER', image: 'https://i.pinimg.com/736x/ae/be/de/aebedea565116005359ffa4b29344622.jpg', video: 'videos/tv1.mp4' },
+        { title: 'AVENGERS', image: 'https://i.pinimg.com/736x/70/1d/84/701d84bf0a62a14724c8662577fc17fc.jpg', video: 'videos/video101.mp4'},
+      ];
+
+      const heroSection = document.getElementById('heroSection');
+      const recommendedContainer = document.getElementById('recommendedResults');
+
+      const matched = movies.filter(movie =>
+        movie.title.toLowerCase().includes(query)
+      );
+
+      if (matched.length === 0) {
+        heroSection.innerHTML = `<p style="padding:2rem; font-size: 20px;">No results for "<strong>${query}</strong>"</p>`;
+        return;
+      }
+   const heroMovie = matched[0];
+    heroSection.innerHTML = `
+      <div class="hero-video-container">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="${heroMovie.video}" type="video/mp4">
+        </video>
+        <div class="hero-overlay">
+      <p class="hero-rating">⭐⭐⭐⭐⭐  / 10</p>
+      <p class=>Enjoy the latest entertainment from your home</p>
+      <p class="hero-description">2025 : 2hr : 5 Languages</p>
+          <h1>${heroMovie.title}</h1>
+          <button class="watch-hero" data-video="${heroMovie.video}">▶ Watch Now</button>
+        </div>
+      </div>
+    `;
+
+      // Hero button click
+      document.querySelector('.watch-hero').addEventListener('click', (e) => {
+        const video = e.target.dataset.video;
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('modalVideo');
+        player.src = video;
+        modal.style.display = 'flex';
+      });
+
+      // Show other recommended movies
+      const recommendations = movies.filter(m => m.title !== heroMovie.title);
+      recommendations.forEach(movie => {
+        const card = document.createElement('div');
+        card.className = 'movie-card';
+        card.setAttribute('data-video', movie.video);
+        card.innerHTML = `
+          <img src="${movie.image}" alt="${movie.title}" />
+          <div class="movie-title">${movie.title}</div>
+          <button class="watch-now-btn">Watch Now</button>
+        `;
+        recommendedContainer.appendChild(card);
+      });
+
+      // Watch buttons
+      document.querySelectorAll('.watch-now-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const video = btn.closest('.movie-card').dataset.video;
+          const modal = document.getElementById('videoModal');
+          const player = document.getElementById('modalVideo');
+          player.src = video;
+          modal.style.display = 'flex';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
