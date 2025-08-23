@@ -1,6 +1,6 @@
-# 🎬 Netflix Clone
+# 🎬 Way 2 Watch
 
-A front-end clone of the Netflix homepage built using **HTML**, **CSS**, and **JavaScript**. This project demonstrates responsive web design, layout structuring, and styling inspired by Netflix’s UI.
+A front-end homepage built using **HTML**, **CSS**, and **JavaScript**. This project demonstrates responsive web design, layout structuring, and styling inspired by way 2 watch UI.
 
 ---
 
