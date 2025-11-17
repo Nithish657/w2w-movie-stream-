@@ -14,9 +14,16 @@ function sendOTP() {
 
 function verifyOTP() {
   const otp = document.getElementById("otp").value;
+  const phone = document.getElementById("phone").value; // get entered phone
+
   if (otp === "1234") {
+    // Store phone in localStorage to indicate logged-in user
+    localStorage.setItem('myflix_user_phone', phone);
+
+    // Redirect to index
     window.location.href = "index.html";
   } else {
     document.getElementById("error-msg").textContent = "Incorrect OTP. Try 1234.";
   }
 }
+
