@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="checkLogin()">
+  <div class="main-app" id="mainApp">
+    <header>
+      <div class="logo">w2w</div>
+     <form id="searchForm" onsubmit="return handleSearch(event)">
+        <input type="text" id="searchInput" placeholder="Search movies..." />
+      </form>
+      <div id="noResults" style="display: none;">No movies found.</div>
+      <div class="right-nav">
+        <button class="nav-btn" onclick="location.href='index.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='movie.html'">Movies</button>
+        <button class="nav-btn" onclick="location.href='sports.html'">Sports</button>
+        <div class="user-icon" onclick="toggleUserMenu()">
+  <img src="assets/profile.png" alt="User" />
+</div>
+
+<div id="userMenu" class="user-menu">
+  <p id="usernameDisplay">👤 Welcome, User!</p>
+  <button onclick="openSettings()">⚙️ Settings</button>
+  <button onclick="logout()">🚪 Logout</button>
+</div>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="slider-container" id="slider">
+        <video class="hero-video" src="videos/avenger.mp4" autoplay muted loop></video>
+        <video class="hero-video" src="videos/pushpa.mp4.mp4" autoplay muted loop></video>
+        <video class="hero-video" src="videos/video101.mp4" autoplay muted loop></video>
+  <div class="hero-overlay">
+    <div class="movie-title">Avengers: Endgame</div>
+    <h1>2025 : 2hr : 5 Languages</h1>
+    <p>Enjoy the latest entertainment from your home</p>
+    <h2>Sci-Fic | Action </h2>
+    <div class="hero-buttons">
+      <button class="watch-now-btn1" onclick="playMovie()">Watch Now</button>
+    </div>
+  </div>
+</div>
+</section>
+
+      <div class="slider-controls">
+        <div class="arrow" id="prev">&#10094;</div>
+        <div class="arrow" id="next">&#10095;</div>
+      </div>
+      <div class="dots" id="dots"></div>
+    </section>
+    
+
+    <!-- Treanding Movies Section -->
+    <section class="popular" id="moviesSection">
+      <h2>Trending Movies</h2>
+      <div class="movie-row-container">
+        <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+        <div class="movie-row">
+          <!-- Movie cards -->
+          <div class="movie-card" data-video="https://imdb-video.media-imdb.com/vi1721157913/1434659607842-pgv4ql-1731923019170.mp4?Expires=1752673724&Signature=VcrIAWe299L-b7SkoDu7tcQe7vJF9LEn~FyNul-wPzcx2xRuJvD8RIzV9N8X9wn4xGnneyHml0jng2BFHiXfCGr0r91lfRR5VW1I5DFddoEgVaQoQH85lD7gvrhdjGrOSSPi98aZ0GryrfrQCKhXCbYdjAmvD4HRCnrnNzkUqIHDHj-FgaeFiEDakb4yXnV8P5ehs8jR0vywA94t90OHQZTRhrvqfXDKiEWQoE32xWa~w9ZByHH2GEnz2NMrfJ2Gsv0ZlCUvJBvbMJTCDLBXSeQJf6Lo4Q~3TcF8DnuI7GvDuRpeCMooEvSACk~RN9e4tZMMV8r0~nTTtmss2bwRZw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA">
+            <img src="https://i.pinimg.com/736x/c8/96/19/c896197e63070e3bbf02950ee8b61deb.jpg" alt="Movie 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie1.mp4">
+            <img src="https://i.pinimg.com/736x/45/f4/a5/45f4a548a70229ad4a1a327871730012.jpg" alt="Movie 1" />
+            <div class="movie-title">
+            </div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie1.mp4">
+            <img src="https://i.pinimg.com/736x/29/cc/59/29cc59b0956ecd79f8fb475a925db6ec.jpg" alt="Movie 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie1.mp4">
+            <img src="https://i.pinimg.com/736x/3b/5d/17/3b5d17da4f8d207beb8e4db08fbb3a31.jpg" alt="Movie 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="https://imdb-video.media-imdb.com/vi1721157913/1434659607842-pgv4ql-1731923019170.mp4?Expires=1752673724&Signature=VcrIAWe299L-b7SkoDu7tcQe7vJF9LEn~FyNul-wPzcx2xRuJvD8RIzV9N8X9wn4xGnneyHml0jng2BFHiXfCGr0r91lfRR5VW1I5DFddoEgVaQoQH85lD7gvrhdjGrOSSPi98aZ0GryrfrQCKhXCbYdjAmvD4HRCnrnNzkUqIHDHj-FgaeFiEDakb4yXnV8P5ehs8jR0vywA94t90OHQZTRhrvqfXDKiEWQoE32xWa~w9ZByHH2GEnz2NMrfJ2Gsv0ZlCUvJBvbMJTCDLBXSeQJf6Lo4Q~3TcF8DnuI7GvDuRpeCMooEvSACk~RN9e4tZMMV8r0~nTTtmss2bwRZw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA">
+            <img src="https://i.pinimg.com/736x/c3/16/17/c316174db83bacb0c998b0a621416568.jpg" alt="Movie 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie1.mp4">
+            <img src="https://i.pinimg.com/736x/e1/b5/57/e1b55730f7ab176e25f662724c9c9135.jpg" alt="Movie 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie1.mp4">
+            <img src="https://i.pinimg.com/736x/56/b7/84/56b78489983402c1d47bbc44a40c8ea7.jpg" alt="Movie 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie1.mp4">
+            <img src="https://i.pinimg.com/736x/7e/8f/a5/7e8fa56f43026e2f6debfa0c3397ed91.jpg" alt="Movie 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Sci-Fic  Movies -->
+    <section class="popular" id="Sci-Fic Movies">
+      <h2>Sci-Fic Movie</h2>
+      <div class="movie-row-container">
+        <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+        <div class="movie-row">
+           <div class="movie-card" data-video="videos/video101.mp4">
+            <img src="https://i.pinimg.com/736x/ae/be/de/aebedea565116005359ffa4b29344622.jpg" alt="Movie 2" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie2.mp4">
+            <img src="https://i.pinimg.com/736x/31/2c/c6/312cc6f9be74045dc928537e09441f1a.jpg" alt="Movie 2" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie2.mp4">
+            <img src="https://i.pinimg.com/736x/22/9f/b8/229fb8a887814e5004769ecb464a114e.jpg" alt="Movie 2" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie2.mp4">
+            <img src="https://i.pinimg.com/736x/cc/06/dc/cc06dcf642dc2450432679d3dc3e9e9a.jpg" alt="Movie 2" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie2,mp4">
+            <img src="https://i.pinimg.com/736x/9f/89/92/9f8992b5bd46c4226f2ac60b0139cd30.jpg" alt="Movie 2" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie2.mp4">
+            <img src="https://i.pinimg.com/736x/ad/65/dd/ad65dd3caf3a0bff0f2f397684b5e3a8.jpg" alt="Movie 2" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie2.mp4">
+            <img src="https://i.pinimg.com/736x/a3/69/72/a36972214994bbd5c3442d8e2d9174f7.jpg" alt="Movie 2" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+           <div class="movie-card" data-video="videos/movie2.mp4">
+            <img src="https://i.pinimg.com/736x/f3/5c/59/f35c595eaa1c9a82710b6b0c33ecb14f.jpg" alt="Movie 2" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+      </div>
+    </section>
+    
+
+    <!-- Top TV Shows -->
+    <section class="popular" id="popular Movies">
+      <h2>Popular Movies</h2>
+      <div class="movie-row-container">
+        <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+        <div class="movie-row">
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/46/ee/61/46ee6156e7ced0f8ddfc87292b9b9f6f.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/06/8e/47/068e4700ce144ddfb8b5863b7b3eafd7.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/da/97/9f/da979f9bc9b23e22f63c3115cd9d68d9.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/9e/22/58/9e2258dedd87d0ac2c4c5bc7a1a2fcbe.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/90/c8/be/90c8beada14cac84cc53e6bdf5ebf253.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/af/34/1e/af341e79a94853eb03fb149f3cfbe509.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/67/cb/a3/67cba31220297f27ebc676d6afa236f9.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/5c/ec/a9/5ceca947e8ead86ed174230ecca5cff7.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/34/69/5c/34695caa9cf423e7680a92952a699fd1.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+          <div class="movie-card" data-video="videos/tv1.mp4">
+            <img src="https://i.pinimg.com/736x/11/1c/00/111c00493b20a2739ffc66eb722c8307.jpg" alt="TV Show 1" />
+            <div class="movie-title"></div>
+            <button class="watch-now-btn">Watch Now</button>
+          </div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+      </div>
+    </section>
+
+    <div id="videoModal" class="video-modal" style="display:none;">
+      <video id="modalVideo" controls autoplay></video>
+      <span class="close-video" onclick="closeVideoModal()">&times;</span>
+    </div>
+  </div>
+<!-- About, Contact, Social, and Extra Options Section -->
+<section class="footer-section">
+  <div class="footer-container">
+    
+    <div class="about">
+      <h3>About Us</h3>
+      <p>We provide amazing content and services. Stay connected!</p>
+    </div>
+
+    <div class="contact">
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    </div>
+
+<div class="social">
+  <h3>Follow Us</h3>
+  <a href="https://in.pinterest.com/pin/604397212530712381/" target="_blank">
+    <img src="assets/instagram.jpg" alt="Instagram" class="social-icon"> Instagram
+  </a>
+  <a href="https://www.facebook.com/yourpage" target="_blank">
+    <img src="assets/facebook.jpg" alt="Facebook" class="social-icon"> Facebook
+  </a>
+</div>
+    <div class="download">
+      <h3>Download Our App</h3>
+      <a href="https://play.google.com/store" target="_blank">
+        <img src="assets/play.jpg" alt="Google Play" width="150">
+      </a>
+      <br><br>
+      <a href="https://www.apple.com/app-store/" target="_blank">
+        <img src="assets/app.jpg" alt="App Store" width="135">
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; Way 2 watch. All rights reserved.</p>
+  </div>
+</section>
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
